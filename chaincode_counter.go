@@ -84,7 +84,7 @@ func (cc *CounterChaincode) countUp(stub shim.ChaincodeStubInterface, args []str
 }
 
 // カウンター情報の取得
-func (cc *CounterChaincode) getCounters(stub *shim.ChaincodeStub,args []string) ([]byte, error) {
+func (cc *CounterChaincode) getCounters(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	var counters [numOfCounters]Counter
 	var countersBytes [numOfCounters][]byte
 
