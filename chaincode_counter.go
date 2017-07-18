@@ -15,7 +15,7 @@ type CounterChaincode struct {
 // カウンター情報
 type Counter struct {
 	Name string `json:"name"`
-	Counts unit64 `json:"counts"`
+	Counts int32 `json:"counts"`
 }
 
 const numOfCounters int=3
@@ -46,7 +46,7 @@ func (cc *CounterChaincode) Invoke(stub *shim.ChaincodeStub,function string,args
 	// function名でハンドリング
 	if function == "countUp" {
 		// カウントアップを実行
-		return cc.countup(stub,args)
+		return cc.countUp(stub,args)
 	}
 
 	return nil, errors.New("Received unknown function")
