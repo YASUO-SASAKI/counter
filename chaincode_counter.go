@@ -101,7 +101,7 @@ func (cc *CounterChaincode) getCounters(stub *shim.ChaincodeStub,args []string) 
 	return json.Marshal(counters)
 }
 
-// Validating Peerに接続し、チェーンコードを実行
+// Validating Peerに接続し、チェーンコードを実行suru
 func main() {
 	err := shim.Start(new(CounterChaincode))
 	if err != nil {
