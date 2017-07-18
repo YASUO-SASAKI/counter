@@ -42,7 +42,7 @@ func (cc *CounterChaincode) Init(shim.ChaincodeStubInterface, string, []string) 
 }
 
 // カウンター情報を更新
-func (cc *CounterChaincode) Invoke(stub *shim.ChaincodeStub,function string,args []string) ([]byte, error) {
+func (cc *CounterChaincode) Invoke(shim.ChaincodeStubInterface, string, []string) ([]byte, error) {
 	// function名でハンドリング
 	if function == "countUp" {
 		// カウントアップを実行
@@ -53,7 +53,7 @@ func (cc *CounterChaincode) Invoke(stub *shim.ChaincodeStub,function string,args
 }
 
 // カウンター情報を参照
-func (cc *CounterChaincode) Query(stub *shim.ChaincodeStub,function string,args []string) ([]byte,error) {
+func (cc *CounterChaincode) Query(shim.ChaincodeStubInterface,function string,args []string) ([]byte,error) {
 	// function名でハンドリング
 	if function == "refresh" {
 		// カウンター情報を崇徳
@@ -64,7 +64,7 @@ func (cc *CounterChaincode) Query(stub *shim.ChaincodeStub,function string,args 
 }
 
 // カウントアップを実行
-func (cc *CounterChaincode) countUp(stub *shim.ChaincodeStub, args []string) ([]byte, error){
+func (cc *CounterChaincode) countUp(shim.ChaincodeStubInterface, args []string) ([]byte, error){
 	// ワールドステートから選択されたカウンター情報を取得
 	counterId := args[0]
 	counterJson, _ := stub.GetState(counterId)
