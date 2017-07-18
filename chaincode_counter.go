@@ -21,7 +21,7 @@ type Counter struct {
 const numOfCounters int=3
 
 // カウンター情報の初期値を設定
-func (cc *CounterChaincode) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (cc *CounterChaincode) Init(shim.ChaincodeStubInterface, string, []string) ([]byte, error) {
 	var counters [numOfCounters]Counter
 	var countersBytes [numOfCounters][]byte
 
