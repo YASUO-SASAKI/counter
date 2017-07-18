@@ -53,7 +53,7 @@ func (cc *CounterChaincode) Invoke(shim.ChaincodeStubInterface, string, []string
 }
 
 // カウンター情報を参照
-func (cc *CounterChaincode) Query(shim.ChaincodeStubInterface,function string,args []string) ([]byte,error) {
+func (cc *CounterChaincode) Query(shim.ChaincodeStubInterface, string, []string) ([]byte,error) {
 	// function名でハンドリング
 	if function == "refresh" {
 		// カウンター情報を崇徳
